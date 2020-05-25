@@ -59,16 +59,36 @@ $config = (new RecognitionConfig())
 
 // create the speech client
 $client = new SpeechClient();
-
+/*
+ * [0] => stdClass Object
+    (
+        [alternatives] => Array
+            (
+                [0] => stdClass Object
+                (
+                    [confidence] => 0.63
+                    [transcript] => yes
+                )
+            )
+        [final] => 1
+    )
+)
+ */
 try {
     $response = $client->recognize($config, $audio);
     $results = array();
+
     foreach ($response->getResults() as $result) {
         $alternatives = $result->getAlternatives();
         $mostLikely = $alternatives[0];
         $transcript = $mostLikely->getTranscript();
         $confidence = $mostLikely->getConfidence();
-        $results[] = $result;
+        $resultx = new stdClass();
+        $resultx->alternatives = Array();
+        $resultx->alternatives[0] = new StdClass();
+        $resultx->alternatives[0]->confidence = $confidence;
+        $resultx->alternatives[0]->transcript = $transcript;
+        $results[] = $resultx;
         // printf('Transcript: %s' . PHP_EOL, $transcript);
         //$result = Array();
         // $result = htmlentities((string)$transcript);
