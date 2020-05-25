@@ -88,7 +88,7 @@ try {
         $resultx->alternatives = Array();
         $resultx->alternatives[0] = new StdClass();
         $resultx->alternatives[0]->confidence = $confidence;
-        $resultx->alternatives[0]->transcript = $transcript;
+        $resultx->alternatives[0]->transcript = htmlentities((string)$transcript);
         $results[] = $resultx;
         // printf('Transcript: %s' . PHP_EOL, $transcript);
         //$result = Array();
