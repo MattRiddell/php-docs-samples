@@ -44,7 +44,8 @@ $sampleRateHertz = 8000;
 $languageCode = 'ar-EG';
 
 // get contents of a file into a string
-$content = $_POST['file'];
+// $content = $_POST['file'];
+$content = file_get_contents("php://input");
 
 // set string as audio content
 $audio = (new RecognitionAudio())
@@ -67,7 +68,9 @@ try {
         $transcript = $mostLikely->getTranscript();
         $confidence = $mostLikely->getConfidence();
         printf('Transcript: %s' . PHP_EOL, $transcript);
-        echo json_encode($transcript);
+        $result = new Array();
+        $result['result'] = htmlentities((string)$transcript);
+        echo json_encode($result);
         break;
         // printf('Confidence: %s' . PHP_EOL, $confidence);
     }
