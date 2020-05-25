@@ -77,19 +77,19 @@ $client = new SpeechClient();
  */
 try {
     $response = $client->recognize($config, $audio);
-    $results = array();
+    // $results = array();
 
     foreach ($response->getResults() as $result) {
         $alternatives = $result->getAlternatives();
         $mostLikely = $alternatives[0];
         $transcript = $mostLikely->getTranscript();
         $confidence = $mostLikely->getConfidence();
-        $resultx = new stdClass();
-        $resultx->alternatives = Array();
-        $resultx->alternatives[0] = new StdClass();
-        $resultx->alternatives[0]->confidence = $confidence;
-        $resultx->alternatives[0]->transcript = htmlentities((string)$transcript);
-        $results[] = $resultx;
+        $results = new stdClass();
+        $results->alternatives = Array();
+        $results->alternatives[0] = new StdClass();
+        $results->alternatives[0]->confidence = $confidence;
+        $results->alternatives[0]->transcript = htmlentities((string)$transcript);
+        // $results[] = $resultx;
         // printf('Transcript: %s' . PHP_EOL, $transcript);
         //$result = Array();
         // $result = htmlentities((string)$transcript);
