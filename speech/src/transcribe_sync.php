@@ -102,5 +102,6 @@ try {
     $client->close();
 }
 print_r($results);
-echo json_encode($results);
+$json =  json_encode($results);
+echo utf8_encode($json);
 # [END speech_transcribe_sync]
