@@ -102,8 +102,8 @@ try {
     $client->close();
 }
 // print_r($results);
-$resultsx = new StdClass();
-$resultsx->results = $results;
+$resultsx = Array();
+$resultsx['results'] = $results;
 $json =  json_encode($resultsx, JSON_UNESCAPED_UNICODE);
 echo $json;
 // echo html_entity_decode($json);
