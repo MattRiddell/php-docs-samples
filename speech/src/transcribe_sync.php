@@ -69,7 +69,7 @@ try {
         $confidence = $mostLikely->getConfidence();
         printf('Transcript: %s' . PHP_EOL, $transcript);
         $result = Array();
-        $result['result'] = (utf8_encode($transcript);
+        $result['result'] = (utf8_encode($transcript));
         echo json_encode($result);
         break;
         // printf('Confidence: %s' . PHP_EOL, $confidence);
