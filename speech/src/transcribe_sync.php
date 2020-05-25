@@ -68,7 +68,7 @@ try {
         $transcript = $mostLikely->getTranscript();
         $confidence = $mostLikely->getConfidence();
         printf('Transcript: %s' . PHP_EOL, $transcript);
-        $result = new Array();
+        $result = Array();
         $result['result'] = htmlentities((string)$transcript);
         echo json_encode($result);
         break;
