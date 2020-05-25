@@ -103,5 +103,7 @@ try {
 }
 print_r($results);
 $json =  json_encode($results);
+echo html_entity_decode($json);
 echo html_entity_decode((string)$json);
+echo html_entity_decode(utf8_decode($json));
 # [END speech_transcribe_sync]
