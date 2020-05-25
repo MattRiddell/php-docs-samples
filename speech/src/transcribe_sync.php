@@ -40,11 +40,11 @@ use Google\Cloud\Speech\V1\RecognitionConfig\AudioEncoding;
 
 // change these variables if necessary
 $encoding = AudioEncoding::LINEAR16;
-$sampleRateHertz = 32000;
-$languageCode = 'en-US';
+$sampleRateHertz = 8000;
+$languageCode = 'ar-EG';
 
 // get contents of a file into a string
-$content = file_get_contents($audioFile);
+$content = $_POST['file'];
 
 // set string as audio content
 $audio = (new RecognitionAudio())
@@ -67,7 +67,9 @@ try {
         $transcript = $mostLikely->getTranscript();
         $confidence = $mostLikely->getConfidence();
         printf('Transcript: %s' . PHP_EOL, $transcript);
-        printf('Confidence: %s' . PHP_EOL, $confidence);
+        echo json_encode($transcript);
+        break;
+        // printf('Confidence: %s' . PHP_EOL, $confidence);
     }
 } finally {
     $client->close();

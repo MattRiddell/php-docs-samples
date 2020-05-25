@@ -41,7 +41,7 @@ use Google\Cloud\Speech\V1\RecognitionConfig\AudioEncoding;
 // change these variables if necessary
 $encoding = AudioEncoding::LINEAR16;
 $sampleRateHertz = 8000;
-$languageCode = 'en-US';
+$languageCode = 'ar-AR';
 
 // get contents of a file into a string
 $content = file_get_contents($audioFile);
