@@ -103,7 +103,9 @@ try {
 }
 // print_r($results);
 $resultsx = Array();
-$resultsx['results'] = $results;
+$obj = new StdClass();
+$obj->results = $results;
+$resultsx[] = $obj;
 $json =  json_encode($resultsx, JSON_UNESCAPED_UNICODE);
 echo $json;
 // echo html_entity_decode($json);
