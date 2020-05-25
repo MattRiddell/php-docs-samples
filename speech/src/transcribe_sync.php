@@ -103,7 +103,7 @@ try {
 }
 // print_r($results);
 $resultsx[] = $results;
-$json =  json_encode($resultsx, JSON_UNESCAPED_UNICODE);
+$json =  json_encode($results, JSON_UNESCAPED_UNICODE);
 echo $json;
 // echo html_entity_decode($json);
 // echo html_entity_decode((string)$json);
