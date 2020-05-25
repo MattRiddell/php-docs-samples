@@ -22,6 +22,7 @@
  */
 
 // Include Google Cloud dependendencies using Composer
+header('Content-Type: application/json');
 require_once __DIR__ . '/../vendor/autoload.php';
 putenv('GOOGLE_APPLICATION_CREDENTIALS=/var/www/html/php-docs-samples/speech/src/cred.json');
 // if (count($argv) != 2) {
