@@ -67,10 +67,11 @@ try {
         $mostLikely = $alternatives[0];
         $transcript = $mostLikely->getTranscript();
         $confidence = $mostLikely->getConfidence();
-        printf('Transcript: %s' . PHP_EOL, $transcript);
-        $result = Array();
-        $result['result'] = (utf8_encode($transcript));
-        echo json_encode($result);
+        // printf('Transcript: %s' . PHP_EOL, $transcript);
+        //$result = Array();
+        $result = htmlentities((string)$transcript);
+        echo '{result: "'.$result.'"}';
+        // echo json_encode($result);
         break;
         // printf('Confidence: %s' . PHP_EOL, $confidence);
     }
