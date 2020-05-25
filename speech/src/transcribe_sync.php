@@ -102,11 +102,18 @@ try {
     $client->close();
 }
 // print_r($results);
-$resultsx = Array();
-$obj = new StdClass();
-$obj->results = $results;
-$resultsx[] = $obj;
-$json =  json_encode($resultsx, JSON_UNESCAPED_UNICODE);
+// $resultsx = new StdClass();
+// $obj = new StdClass();
+// $obj->results[] = $results;
+// $resultsx[] = $obj;
+
+$resultsx = array();
+$resultsx[] = $results;
+$resultsy = new StdClass();
+$resultsy->results = $resultsx;
+
+
+$json =  json_encode($resultsy, JSON_UNESCAPED_UNICODE);
 echo $json;
 // echo html_entity_decode($json);
 // echo html_entity_decode((string)$json);
