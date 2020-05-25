@@ -27,7 +27,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 // if (count($argv) != 2) {
 //     return print("Usage: php transcribe_sync.php AUDIO_FILE\n");
 // }
-list($_, $audioFile) = $argv;
+// list($_, $audioFile) = $argv;
 
 # [START speech_transcribe_sync]
 use Google\Cloud\Speech\V1\SpeechClient;
