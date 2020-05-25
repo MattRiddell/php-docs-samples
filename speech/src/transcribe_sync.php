@@ -23,7 +23,7 @@
 
 // Include Google Cloud dependendencies using Composer
 require_once __DIR__ . '/../vendor/autoload.php';
-
+putenv('GOOGLE_APPLICATION_CREDENTIALS=/var/www/html/php-docs-samples/speech/src/cred.json');
 // if (count($argv) != 2) {
 //     return print("Usage: php transcribe_sync.php AUDIO_FILE\n");
 // }
@@ -62,20 +62,23 @@ $client = new SpeechClient();
 
 try {
     $response = $client->recognize($config, $audio);
+    $results = array();
     foreach ($response->getResults() as $result) {
         $alternatives = $result->getAlternatives();
         $mostLikely = $alternatives[0];
         $transcript = $mostLikely->getTranscript();
         $confidence = $mostLikely->getConfidence();
+        $results[] = $result;
         // printf('Transcript: %s' . PHP_EOL, $transcript);
         //$result = Array();
-        $result = htmlentities((string)$transcript);
-        echo '{result: "'.$result.'"}';
+        // $result = htmlentities((string)$transcript);
+        // echo '{result: "'.$result.'"}';
         // echo json_encode($result);
-        break;
+        // break;
         // printf('Confidence: %s' . PHP_EOL, $confidence);
     }
 } finally {
     $client->close();
 }
+echo json_encode($results);
 # [END speech_transcribe_sync]
