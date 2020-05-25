@@ -102,7 +102,8 @@ try {
     $client->close();
 }
 // print_r($results);
-$json =  json_encode($results, JSON_UNESCAPED_UNICODE);
+$resultsx[] = $results;
+$json =  json_encode($resultsx, JSON_UNESCAPED_UNICODE);
 echo $json;
 // echo html_entity_decode($json);
 // echo html_entity_decode((string)$json);
