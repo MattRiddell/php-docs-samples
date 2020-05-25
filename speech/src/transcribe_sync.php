@@ -106,4 +106,6 @@ $json =  json_encode($results);
 echo html_entity_decode($json);
 echo html_entity_decode((string)$json);
 echo html_entity_decode(utf8_decode($json));
+$output = preg_replace_callback("/(&#[0-9]+;)/", function($m) { return mb_convert_encoding($m[1], "UTF-8", "HTML-ENTITIES"); }, $json);
+echo "\n".$output;
 # [END speech_transcribe_sync]
